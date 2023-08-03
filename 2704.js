@@ -1,49 +1,27 @@
-var expect = function (val) {
+let expect = function (val) {
+    let value = val;
+    let obj = {};
 
-    var toBe = function (val) {
-        let array = [];
-        array.push(val);
-
-        if (array.length > 0) {
-            for (let a in array) {
-                if (array[a] === array[a - 1]) {
-                    return true;
-                }else{
-                    return "Not Equal";
-                }
-            }
-        }else if( array.length === 0){
-            return true;
-        }else{
-            return false;
+    let toBe = function (val) {
+        let toBeValue = val;
+        if (toBeValue === value) {
+            return true ;
+        } else {
+            throw new Error("Not Equal");
         }
     }
 
-    var notToBe = function () {
-        let array = [];
-        array.push(val);
-
-        if (array.length > 0) {
-            for (let a in array) {
-                if (array[a] !== array[a - 1]) {
-                    return true;
-                }else{
-                    return "Equal";
-                }
-            }
-        }else if( array.length === 0){
+    let notToBe = function (val) {
+        let notToBeValue = val;
+        if (notToBeValue !== value) {
             return true;
-        }else{
-            return false;
+        } else {
+            throw new Error("Equal");
         }
     }
 
-    obj = {
-        "toBe": toBe,
-        "notToBe": notToBe,
-    }
-
-    return obj;
+    return obj = {toBe, notToBe};
 };
 
-expect(5).toBe(5);
+let teste = expect(5).toBe(5);
+console.log(teste)
