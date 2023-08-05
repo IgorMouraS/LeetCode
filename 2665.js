@@ -2,18 +2,9 @@ let createCounter = function(init) {
     let valor = init;
     let obj = {};
 
-    let increment = function(){
-        return ++valor;
-    }
-
-    let decrement = function(){
-        return --valor;
-    }
-
-    let reset = function(){
-        valor = init;
-        return valor;
-    }
+    let increment = () => ++valor;
+    let decrement = () => --valor;
+    let reset = () => valor = init;
 
     return obj = {increment, decrement, reset};
 };
