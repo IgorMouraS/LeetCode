@@ -1,19 +1,18 @@
-var map = function (arr, fn) {
+let map = function (arr, fn) {
     let array = [];
     let returnedArray = array.concat(arr);
 
-    for (i in returnedArray) {
-        returnedArray[i] = fn(array[i], i);
-    }
-
-    function fn(n, i) {
-        if (i === null) {
-            return n + 1;
-        } else {
-            return n + i;
+    for (let i = 0; i < returnedArray.length; i++) {
+        if(fn = plusone(n)){
+            returnedArray[i] = returnedArray[i] + 1;
+        }else if(plusI(n, i)){
+            returnedArray[i] = returnedArray[i] + i;
+        }else{
+            returnedArray[i] = 42;
         }
-    
-    }
+    };
+    return returnedArray;
+
 };
 
 
