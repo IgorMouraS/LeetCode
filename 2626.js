@@ -1,17 +1,17 @@
 var reduce = function(nums, fn, init) {
-    let val = 0;
-    let reduced = {init, val};
+    let reduced = [];
 
     if(nums.length === 0){
-        return init;
-    }
-
-    for(const i in nums){
-        val = fn(init, nums[i]);
+        return reduced = init;
     }
     
-    return reduced;
+    for(let i = 0;  i < nums.length; i++){
+        init = fn(init, nums[i]);
+    }
+
+    
+    return reduced = init;
 };
 
-let result = reduce([1,2,3,4], function sum(accum, curr) { return accum + curr; }, 0);
+let result = reduce([], function sum(accum, curr) { return accum + curr; }, 25);
 console.log(result);
