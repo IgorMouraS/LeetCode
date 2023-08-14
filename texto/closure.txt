@@ -1,0 +1,2 @@
+- Is the combination of a function bundled together
+- It gives you access to an outer function's scope from an inner function
