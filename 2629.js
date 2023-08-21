@@ -1,18 +1,9 @@
 let compose = function(functions) {
 	return function(x) {
-
-        let result = x;
-        functions.reverse();
-
-        for(fn of functions){
-            result = fn(result);
-        }
-
-        return result;
+        return functions.reduceRight((acc, curr) => curr(acc), x);
     }
 };
 
-let teste = compose([x => x + 1, x => x * x, x => 2 * x]);
-let result = teste(4);
+let teste = compose([x => x + 1, x => x * x, x => 2 * x], 4);
 
 console.log(result);
