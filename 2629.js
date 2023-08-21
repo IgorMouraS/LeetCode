@@ -1,10 +1,18 @@
-var compose = function(functions) {
+let compose = function(functions) {
 	return function(x) {
-        fn(x) = f(g(h(x)))
-        return fn(x);
+
+        let result = x;
+        functions.reverse();
+
+        for(fn of functions){
+            result = fn(result);
+        }
+
+        return result;
     }
 };
 
-const fn = compose([x => x + 1, x => x * x, x => 2 * x], x = 4)
+let teste = compose([x => x + 1, x => x * x, x => 2 * x]);
+let result = teste(4);
 
-console.log(fn);
+console.log(result);
